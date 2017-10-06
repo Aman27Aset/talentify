@@ -2,13 +2,20 @@
 
 <p>
   <strong>Body:</strong>
-  <%= @post.body %>
+  <%= @question.body %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @question.category %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @post.user %>
+  <%= @question.user %>
 </p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Give an Answer', new_question_answer_path(@question) %>
+  <% @answers.each do |answer| %>
+    <h4><%= answer.body %> posted by <%= answer.user.email %></h4>
+  <% end %>
